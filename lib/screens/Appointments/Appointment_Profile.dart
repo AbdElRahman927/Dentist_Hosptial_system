@@ -1,5 +1,3 @@
-
-
 import 'package:dentist_hospital_system/screens/Appointments/model/appointment_model.dart';
 import 'package:dentist_hospital_system/screens/Doctors/Doctor_profile.dart';
 import 'package:dentist_hospital_system/screens/Patients/pateint_profile.dart';
@@ -15,7 +13,6 @@ class AppointmentProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF4F7FB),
-      // drawer: AppDrawerhandelr(),
       appBar: AppBar(
         elevation: 2,
         backgroundColor: Colors.white,

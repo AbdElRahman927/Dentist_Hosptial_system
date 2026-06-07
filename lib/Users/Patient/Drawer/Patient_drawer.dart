@@ -1,9 +1,13 @@
 import 'package:dentist_hospital_system/Users/Patient/Drawer/Patient_drawer_tile.dart';
 import 'package:dentist_hospital_system/Users/Patient/Drawer/label.dart';
 import 'package:dentist_hospital_system/Users/Patient/Drawer/patient_drawer_header.dart';
+import 'package:dentist_hospital_system/Users/Patient/screens/Pateint_Profile/patient_profile_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/Patient_main_screen/Patient_main_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/book_appointments/book_appointment_screen.dart';
+import 'package:dentist_hospital_system/Users/Patient/screens/diagnoses_screen/diagnoses_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/screens/patient_appointments_screen.dart';
+import 'package:dentist_hospital_system/Users/Patient/screens/patient_settings/patient_settings_screen.dart';
+import 'package:dentist_hospital_system/Users/Patient/screens/prescriptions_screen/prescriptions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/session_manager.dart';
@@ -103,7 +107,14 @@ class PatientDrawer extends StatelessWidget {
                       Icons.medical_services_outlined,
                       color: Color(0xff931A23),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PrescriptionsScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   PatientDrawerTile(
@@ -112,7 +123,14 @@ class PatientDrawer extends StatelessWidget {
                       Icons.description_outlined,
                       color: Color(0xff931A23),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DiagnosesScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   const SizedBox(height: 8),
@@ -128,7 +146,14 @@ class PatientDrawer extends StatelessWidget {
                       Icons.person_outline,
                       color: Color(0xff931A23),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PatientProfileScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   PatientDrawerTile(
@@ -146,7 +171,14 @@ class PatientDrawer extends StatelessWidget {
                       Icons.settings_outlined,
                       color: Color(0xff931A23),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PatientSettingsScreen(),
+                        ),
+                      );
+                    },
                   ),
 
                   PatientDrawerTile(

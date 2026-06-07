@@ -1,8 +1,9 @@
 import 'package:dentist_hospital_system/Users/Admin/Screens/Admin_Notifacation.dart';
+import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/WelcomeBanner.dart';
 import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Admin_Specific_widgets/Active_Doctors.dart';
 import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Doctor_Specific_widgets/Active_Students.dart';
 import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Recent_appointments.dart';
-import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/table_cards/Widgets_Table.dart';
+import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Admin_Specific_widgets/admin_table.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/user_role.dart';
 import 'package:dentist_hospital_system/screens/Chat%20bot/controller/chat_controller.dart';
@@ -84,87 +85,17 @@ class _Admin_DashBoardState extends State<Admin_DashBoard> {
           children: [
             SizedBox(height: 16),
             // Welcome banner
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xff931A23), Color(0xffB52D38)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xff931A23).withValues(alpha: 0.3),
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Good Morning 👋",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white.withValues(alpha: 0.85),
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              "Dr. Ahmed Hassan",
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: Icon(
-                          Icons.admin_panel_settings,
-                          color: Colors.white,
-                          size: 28,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-                  Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        _bannerStat("12", "Today's\nAppointments"),
-                        _bannerDivider(),
-                        _bannerStat("3", "Pending\nApprovals"),
-                        _bannerDivider(),
-                        _bannerStat("98%", "System\nUptime"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            Welcomebanner(
+              userrole: UserRole.admin,
+              userName: "Admin",
+              bannerstatavalue: ["12", "3", "98%"],
+              bannerstatelabel: [
+                "Today's\nAppointments",
+                "Pending\nApprovals",
+                "System\nUptime",
+              ],
             ),
+
             SizedBox(height: 20),
 
             // Quick overview label
@@ -174,7 +105,7 @@ class _Admin_DashBoardState extends State<Admin_DashBoard> {
             ),
             SizedBox(height: 12),
 
-            Widgets_Table(),
+            AdminTable(),
 
             SizedBox(height: 20),
 
@@ -260,34 +191,6 @@ class _Admin_DashBoardState extends State<Admin_DashBoard> {
       ),
     );
   }
-
-  Widget _bannerStat(String value, String label) => Column(
-    children: [
-      Text(
-        value,
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
-      SizedBox(height: 4),
-      Text(
-        label,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 11,
-          color: Colors.white.withValues(alpha: 0.8),
-        ),
-      ),
-    ],
-  );
-
-  Widget _bannerDivider() => Container(
-    width: 1,
-    height: 40,
-    color: Colors.white.withValues(alpha: 0.3),
-  );
 
   Widget _scheduleItem(
     String time,

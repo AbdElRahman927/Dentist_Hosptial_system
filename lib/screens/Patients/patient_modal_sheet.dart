@@ -73,21 +73,17 @@ class Patient_Modal_Sheet extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(color: Colors.black, thickness: 0, height: 10),
           Expanded(
             child: ListView(
               children: [
-                Data_Row(data: "Patient ID", value: patient.id ?? '-'),
-                Data_Row(data: "Age", value: patient.age ?? '-'),
-                Data_Row(data: "Gender", value: patient.gender ?? '-'),
-                Data_Row(data: "Phone", value: patient.phone ?? '-'),
-                Data_Row(data: "Condition", value: patient.condition ?? '-'),
-                Data_Row(
-                  data: "Assigned Doctor",
-                  value: patient.assignedDoctorDisplayName,
-                ),
-                Data_Row(data: "Last Visit", value: patient.lastVisit ?? '-'),
-                Data_Row(data: "Next Visit", value: patient.nextVisit ?? '-'),
+                _row("Patient ID", patient.id ?? '-'),
+                _row("Age", patient.age ?? '-'),
+                _row("Gender", patient.gender ?? '-'),
+                _row("Phone", patient.phone ?? '-'),
+                _row("Condition", patient.condition ?? '-'),
+                _row("Assigned Doctor", patient.assignedDoctorDisplayName),
+                _row("Last Visit", patient.lastVisit ?? '-'),
+                _row("Next Visit", patient.nextVisit ?? '-'),
               ],
             ),
           ),
@@ -136,6 +132,48 @@ class Patient_Modal_Sheet extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _row(String data, String? value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.03),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 130,
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                value ?? '-',
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

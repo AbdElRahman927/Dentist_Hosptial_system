@@ -44,7 +44,6 @@ class Recent_appointments extends StatelessWidget {
           ),
           SizedBox(height: 15),
           ListView.builder(
-            
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 3,

@@ -1,6 +1,5 @@
 import 'package:dentist_hospital_system/screens/Doctors/Doctor_profile.dart';
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/DetailsCard.dart';
-import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/model_sheet_data_row.dart';
 import 'package:dentist_hospital_system/screens/Doctors/model/doctor.dart';
 
 import 'package:flutter/material.dart';
@@ -12,8 +11,8 @@ class Doctor_Modal_Sheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.78,
       width: double.infinity,
       child: Column(
         children: [
@@ -117,16 +116,13 @@ class Doctor_Modal_Sheet extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                Data_Row(
-                  data: "Specialization",
-                  value: doctor.specialization ?? '-',
-                ),
-                Data_Row(data: "License Number", value: doctor.license ?? '-'),
-                Data_Row(data: "Experience", value: doctor.experience ?? '-'),
-                Data_Row(
-                  data: "Appointments",
-                  value: "${doctor.numOfAppointments ?? 0}",
-                ),
+                _row("Specialization", doctor.specialization ?? '-'),
+                _row("License Number", doctor.license ?? '-'),
+                _row("Experience", doctor.experience ?? '-'),
+                _row("Appointments", "${doctor.numOfAppointments ?? 0}"),
+                _row("Status", doctor.statusLabel),
+                _row("Phone", doctor.phone ?? '-'),
+                _row("Email", doctor.email ?? '-'),
 
                 /// ===== NAVIGATION =====
                 Padding(
@@ -171,6 +167,48 @@ class Doctor_Modal_Sheet extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _row(String data, String? value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.03),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 130,
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                value ?? '-',
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

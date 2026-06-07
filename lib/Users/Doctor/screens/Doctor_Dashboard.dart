@@ -1,7 +1,11 @@
+import 'package:dentist_hospital_system/Auth/main_auth/user_role.dart';
+import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/WelcomeBanner.dart';
 import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Doctor_Specific_widgets/Active_Students.dart';
-import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Doctor_Specific_widgets/Doctor_Widgets_Table.dart';
+import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Doctor_Specific_widgets/doctor_table.dart';
 import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Recent_appointments.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
+import 'package:dentist_hospital_system/screens/Chat%20bot/controller/chat_controller.dart';
+import 'package:dentist_hospital_system/screens/Chat%20bot/screens/AI_Chat_Screen.dart';
 import 'package:flutter/material.dart';
 
 class Doctor_DashBoard extends StatefulWidget {
@@ -15,6 +19,26 @@ class _Doctor_DashBoardState extends State<Doctor_DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => AiChatScreen(
+                    role: UserRole.doctor,
+                    userName: "Dr.Ahmed",
+                    controller: ChatController(),
+                  ),
+            ),
+          );
+        },
+        backgroundColor: Color(0xff931A23),
+        shape: CircleBorder(),
+        foregroundColor: Colors.white,
+        elevation: 5,
+        child: Icon(Icons.chat_bubble_outline),
+      ),
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         elevation: 5,
@@ -53,94 +77,11 @@ class _Doctor_DashBoardState extends State<Doctor_DashBoard> {
           children: [
             SizedBox(height: 16),
             // Welcome banner
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xff931A23), Color(0xffB52D38)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xff931A23).withValues(alpha: 0.3),
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Good Morning 👋",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white.withValues(alpha: 0.85),
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              "Dr. Ahmed Hassan",
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              "Orthodontist",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.white.withValues(alpha: 0.7),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: Icon(
-                          Icons.medical_services_outlined,
-                          color: Colors.white,
-                          size: 28,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 16),
-                  Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        _bannerStat("8", "Today's\nPatients"),
-                        _bannerDivider(),
-                        _bannerStat("5", "Supervised\nStudents"),
-                        _bannerDivider(),
-                        _bannerStat("2", "Pending\nReviews"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            Welcomebanner(
+              userName: 'Dr.Ahmed Hassan',
+              bannerstatavalue: ['8', '5', '2'],
+              bannerstatelabel: ['Today\'s Patients', 'Supervised Students', 'Pending Reviews'],
+              userrole: UserRole.doctor,
             ),
             SizedBox(height: 20),
 
@@ -151,7 +92,7 @@ class _Doctor_DashBoardState extends State<Doctor_DashBoard> {
             ),
             SizedBox(height: 12),
 
-            Doctor_Widgets_Table(),
+            DoctorTable(),
 
             SizedBox(height: 20),
 
@@ -314,34 +255,6 @@ class _Doctor_DashBoardState extends State<Doctor_DashBoard> {
       ),
     );
   }
-
-  Widget _bannerStat(String value, String label) => Column(
-    children: [
-      Text(
-        value,
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
-      SizedBox(height: 4),
-      Text(
-        label,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 11,
-          color: Colors.white.withValues(alpha: 0.8),
-        ),
-      ),
-    ],
-  );
-
-  Widget _bannerDivider() => Container(
-    width: 1,
-    height: 40,
-    color: Colors.white.withValues(alpha: 0.3),
-  );
 
   Widget _scheduleItem(
     String time,

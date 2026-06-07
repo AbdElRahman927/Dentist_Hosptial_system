@@ -143,15 +143,6 @@ class _PatientsScreenState extends State<PatientsScreen> {
             const Text("Patients", style: TextStyle(color: Color(0xff931A23))),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.person_add_outlined,
-              color: Color(0xff931A23),
-            ),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(
         children: [
