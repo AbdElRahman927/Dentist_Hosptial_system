@@ -1,5 +1,6 @@
 import 'package:dentist_hospital_system/Users/Patient/screens/book_appointments/book_appointment_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/screens/patient_appointments_screen.dart';
+import 'package:dentist_hospital_system/Users/Patient/screens/prescriptions_screen/prescriptions_screen.dart';
 import 'package:flutter/material.dart';
 
 class QuickActions extends StatelessWidget {
@@ -12,10 +13,7 @@ class QuickActions extends StatelessWidget {
       children: [
         const Text(
           "Quick Actions",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
 
         const SizedBox(height: 12),
@@ -50,7 +48,14 @@ class QuickActions extends StatelessWidget {
             _actionCard(
               icon: Icons.medical_services_outlined,
               label: "Prescriptions",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrescriptionsScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
