@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Students/model/Student_model.dart';
 import 'package:dentist_hospital_system/screens/Students/widgets/student_card.dart';
 import 'package:dentist_hospital_system/screens/Students/widgets/student_empty_state.dart';
@@ -19,36 +20,6 @@ class _StudentsScreenState extends State<StudentsScreen> {
   String searchQuery = '';
 
   final List<String> filters = ['All', 'Active', 'On Leave', 'Inactive'];
-
-  final List<StudentModel> students = [
-    StudentModel(
-      phone: '011',
-      email: "[EMAIL_ADDRESS]",
-      name: 'Dr. Ahmed Hassan',
-      year: 3,
-      numOfPatients: 142,
-      supervisor: 'Dr. Mohamed',
-      state: 'Active',
-    ),
-    StudentModel(
-      phone: '011',
-      email: "[EMAIL_ADDRESS]",
-      name: 'Dr. Hamada Hassan',
-      year: 5,
-      numOfPatients: 45,
-      supervisor: 'Dr. Salem',
-      state: 'On Leave',
-    ),
-    StudentModel(
-      phone: '011',
-      email: "[EMAIL_ADDRESS]",
-      name: 'Dr. Mohey',
-      year: 4,
-      numOfPatients: 99,
-      supervisor: 'Dr. Ibrahim',
-      state: 'Inactive',
-    ),
-  ];
 
   List<StudentModel> get filteredStudents {
     return students.where((student) {

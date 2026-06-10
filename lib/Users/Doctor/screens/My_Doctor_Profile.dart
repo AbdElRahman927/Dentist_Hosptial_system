@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class Doctor_Profile extends StatelessWidget {
@@ -59,12 +60,12 @@ class Doctor_Profile extends StatelessWidget {
                 ),
                 SizedBox(height: 14),
                 Text(
-                  "Dr. Ahmed Hassan",
+                  doctors[0].name.toString(),
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "Prosthodontics",
+                  doctors[0].specialization.toString(),
                   style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
                 SizedBox(height: 10),
@@ -82,7 +83,7 @@ class Doctor_Profile extends StatelessWidget {
                           Icon(Icons.circle, size: 8, color: Colors.green),
                           SizedBox(width: 4),
                           Text(
-                            "Active",
+                            doctors[0].state.toString(),
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.green,
@@ -100,7 +101,7 @@ class Doctor_Profile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        "LIC-2015-0234",
+                        doctors[0].license.toString(),
                         style: TextStyle(
                           fontSize: 12,
                           color: Color(0xff931A23),
@@ -118,25 +119,49 @@ class Doctor_Profile extends StatelessWidget {
           // Stats
           Row(
             children: [
-              _stat("Patients", "142", Icons.people_outline),
+              _stat(
+                "Patients",
+                doctors[0].numOfPatients.toString(),
+                Icons.people_outline,
+              ),
               SizedBox(width: 10),
-              _stat("Appointments", "7", Icons.calendar_today_outlined),
+              _stat(
+                "Appointments",
+                doctors[0].numOfAppointments.toString(),
+                Icons.calendar_today_outlined,
+              ),
             ],
           ),
           SizedBox(height: 10),
           Row(
             children: [
-              _stat("Students", "5", Icons.school_outlined),
+              _stat(
+                "Students",
+                doctors[0].numOfStudents.toString(),
+                Icons.school_outlined,
+              ),
               SizedBox(width: 10),
-              _stat("Experience", "8 yrs", Icons.workspace_premium_outlined),
+              _stat(
+                "Experience",
+                doctors[0].experience.toString(),
+                Icons.workspace_premium_outlined,
+              ),
             ],
           ),
           SizedBox(height: 20),
 
           // Contact Information
           _sectionCard("Contact Information", [
-            _infoRow(Icons.email_outlined, "Email", "ahmed.hassan@nmu.edu.eg"),
-            _infoRow(Icons.phone_outlined, "Phone", "+20 1012345678"),
+            _infoRow(
+              Icons.email_outlined,
+              "Email",
+              doctors[0].email.toString(),
+            ),
+            _infoRow(
+              Icons.phone_outlined,
+              "Phone",
+              doctors[0].phone.toString(),
+            ),
             _infoRow(
               Icons.location_on_outlined,
               "Office",
@@ -147,8 +172,16 @@ class Doctor_Profile extends StatelessWidget {
 
           // Professional Info
           _sectionCard("Professional Info", [
-            _infoRow(Icons.school_outlined, "Degree", "PhD in Prosthodontics"),
-            _infoRow(Icons.badge_outlined, "Staff ID", "DOC-2018-042"),
+            _infoRow(
+              Icons.school_outlined,
+              "Degree",
+              "PhD in ${doctors[0].specialization}",
+            ),
+            _infoRow(
+              Icons.badge_outlined,
+              "Staff ID",
+              doctors[0].license.toString(),
+            ),
             _infoRow(Icons.calendar_today_outlined, "Joined", "March 10, 2018"),
             _infoRow(
               Icons.access_time_outlined,

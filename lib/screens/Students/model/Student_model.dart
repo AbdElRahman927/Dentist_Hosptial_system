@@ -37,14 +37,16 @@ class StudentModel {
   final String? phone;
   final String? id;
   final String? supervisor;
-  final int? year;
+  final String? year;
   final int? numOfPatients;
   final int? numOfAppointments;
   final int? performance;
   final String? state;
   final String? lastActive;
+  final String? group;
 
   StudentModel({
+    this.group,
     this.name,
     this.email,
     this.image,

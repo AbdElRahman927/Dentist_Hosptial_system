@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/screens/Appointments/Appointment_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class Recent_appointments extends StatelessWidget {
@@ -63,9 +64,9 @@ class Recent_appointments extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Mahmoud Taha"),
+                              Text(appointments[index].patientName),
                               Text(
-                                "Orthodontic Checkup",
+                                appointments[index].treatment!,
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
                             ],
@@ -74,7 +75,10 @@ class Recent_appointments extends StatelessWidget {
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [Text("10/10/2024"), Text("10:00 AM")],
+                        children: [
+                          Text("${appointments[index].date}"),
+                          Text("${appointments[index].time}"),
+                        ],
                       ),
                     ],
                   ),

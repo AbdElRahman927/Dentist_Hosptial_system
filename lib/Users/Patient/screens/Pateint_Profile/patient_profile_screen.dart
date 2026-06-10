@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Users/Patient/screens/Pateint_Profile/widgets/patient_profile_card.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/patient_profile_action_row.dart';
@@ -35,11 +36,11 @@ class PatientProfileScreen extends StatelessWidget {
           const SizedBox(height: 16),
 
           Row(
-            children: const [
+            children: [
               Expanded(
                 child: PatientProfileStatCard(
                   title: "Appointments",
-                  value: "18",
+                  value: "${patients[0].appointments?.length}",
                   icon: Icons.calendar_month_outlined,
                 ),
               ),
@@ -49,7 +50,7 @@ class PatientProfileScreen extends StatelessWidget {
               Expanded(
                 child: PatientProfileStatCard(
                   title: "Visits",
-                  value: "12",
+                  value: "${patients[0].appointments?.length}",
                   icon: Icons.medical_services_outlined,
                 ),
               ),
@@ -63,7 +64,7 @@ class PatientProfileScreen extends StatelessWidget {
               Expanded(
                 child: PatientProfileStatCard(
                   title: "Prescriptions",
-                  value: "7",
+                  value: "3",
                   icon: Icons.receipt_long_outlined,
                 ),
               ),
@@ -73,7 +74,7 @@ class PatientProfileScreen extends StatelessWidget {
               Expanded(
                 child: PatientProfileStatCard(
                   title: "Diagnoses",
-                  value: "5",
+                  value: "2",
                   icon: Icons.health_and_safety_outlined,
                 ),
               ),
@@ -84,23 +85,23 @@ class PatientProfileScreen extends StatelessWidget {
 
           PatientProfileSection(
             title: "Personal Information",
-            children: const [
+            children: [
               PatientProfileInfoRow(
                 icon: Icons.email_outlined,
                 label: "Email",
-                value: "patient@email.com",
+                value: patients[0].email!,
               ),
 
               PatientProfileInfoRow(
                 icon: Icons.phone_outlined,
                 label: "Phone",
-                value: "+20 1012345678",
+                value: patients[0].phone!,
               ),
 
               PatientProfileInfoRow(
                 icon: Icons.person_outline,
                 label: "Gender",
-                value: "Male",
+                value: patients[0].gender!,
               ),
 
               PatientProfileInfoRow(

@@ -1,3 +1,4 @@
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class PatientProfileHeader extends StatelessWidget {
@@ -18,9 +19,9 @@ class PatientProfileHeader extends StatelessWidget {
           CircleAvatar(
             radius: 45,
             backgroundColor: const Color(0xff931A23),
-            child: const Text(
-              "AM",
-              style: TextStyle(
+            child: Text(
+              patients[0].initials,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -30,29 +31,21 @@ class PatientProfileHeader extends StatelessWidget {
 
           const SizedBox(height: 12),
 
-          const Text(
-            "Ahmed Mohamed",
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+          Text(
+            patients[0].name!,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
 
           const SizedBox(height: 6),
 
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 5,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
             decoration: BoxDecoration(
-              color: const Color(
-                0xff931A23,
-              ).withValues(alpha: .1),
+              color: const Color(0xff931A23).withValues(alpha: .1),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Text(
-              "Patient ID: PT-2025-001",
+            child: Text(
+              "Patient ID: ${patients[0].id}",
               style: TextStyle(
                 color: Color(0xff931A23),
                 fontWeight: FontWeight.w600,

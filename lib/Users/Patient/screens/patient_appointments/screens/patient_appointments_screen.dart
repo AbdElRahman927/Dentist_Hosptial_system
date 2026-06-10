@@ -4,7 +4,7 @@ import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointmen
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/widgets/patient_appointments_header.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/widgets/patient_appointments_search.dart';
 import 'package:dentist_hospital_system/screens/Appointments/model/appointment_model.dart';
-import 'package:dentist_hospital_system/screens/Doctors/model/doctor.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class PatientAppointmentsScreen extends StatefulWidget {
@@ -29,47 +29,8 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
     "Scheduled",
   ];
 
-  final List<AppointmentModel> appointments = [
-    AppointmentModel(
-      id: '1',
-
-      doctor: Doctor_model(
-        name: 'Dr. Ahmed Hassan',
-        specialization: 'Orthodontics',
-      ),
-      date: "15 May 2026",
-      time: "10:30 AM",
-      location: "Dental Clinic A",
-
-      state: 'Confirmed',
-    ),
-
-    AppointmentModel(
-      doctor: Doctor_model(
-        name: "Dr. Sara Mohamed",
-        specialization: "Periodontics",
-      ),
-      date: "20 May 2026",
-      time: "12:00 PM",
-      location: "Dental Clinic B",
-
-      state: 'InProgress',
-    ),
-
-    AppointmentModel(
-      doctor: Doctor_model(
-        name: "Dr. Mohamed Ali",
-        specialization: "Endodontics",
-      ),
-      date: "7 May 2026",
-      time: "9:00 AM",
-      location: "Dental Clinic C",
-      state: 'completed',
-    ),
-  ];
-
   List<AppointmentModel> get filteredAppointments {
-    return appointments.where((appointment) {
+    return myappointments.where((appointment) {
       final matchFilter =
           selectedFilter == 0 ||
           appointment.statusLabel == filters[selectedFilter];
@@ -107,7 +68,7 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
 
       body: Column(
         children: [
-          PatientAppointmentsHeader(total: appointments.length),
+          PatientAppointmentsHeader(total: myappointments.length),
 
           PatientAppointmentsSearch(
             onChanged: (value) {

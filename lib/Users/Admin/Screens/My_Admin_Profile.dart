@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class Admin_Profile extends StatelessWidget {
@@ -49,7 +50,7 @@ class Admin_Profile extends StatelessWidget {
                   radius: 45,
                   backgroundColor: Color(0xff931A23),
                   child: Text(
-                    "AH",
+                    "MY",
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -59,7 +60,7 @@ class Admin_Profile extends StatelessWidget {
                 ),
                 SizedBox(height: 14),
                 Text(
-                  "Dr. Ahmed Hassan",
+                  "Mohamed Yasser",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
@@ -113,9 +114,13 @@ class Admin_Profile extends StatelessWidget {
           // Stats row
           Row(
             children: [
-              _statCard("Total Staff", "24", Icons.people_outline),
+              _statCard(
+                "Total Staff",
+                (doctors.length + students.length).toString(),
+                Icons.people_outline,
+              ),
               SizedBox(width: 10),
-              _statCard("Departments", "8", Icons.business_outlined),
+              _statCard("Departments", "4", Icons.business_outlined),
             ],
           ),
           SizedBox(height: 10),
@@ -123,11 +128,15 @@ class Admin_Profile extends StatelessWidget {
             children: [
               _statCard(
                 "Active Doctors",
-                "12",
+                doctors.length.toString(),
                 Icons.medical_services_outlined,
               ),
               SizedBox(width: 10),
-              _statCard("Students", "36", Icons.school_outlined),
+              _statCard(
+                "Students",
+                students.length.toString(),
+                Icons.school_outlined,
+              ),
             ],
           ),
           SizedBox(height: 20),
@@ -142,18 +151,6 @@ class Admin_Profile extends StatelessWidget {
               "Joined",
               "January 15, 2020",
             ),
-          ]),
-          SizedBox(height: 16),
-
-          // Qualifications
-          _sectionCard("Qualifications", [
-            _infoRow(Icons.school_outlined, "Degree", "PhD in Dental Surgery"),
-            _infoRow(
-              Icons.workspace_premium_outlined,
-              "Specialty",
-              "Oral & Maxillofacial",
-            ),
-            _infoRow(Icons.military_tech_outlined, "Experience", "15+ years"),
           ]),
           SizedBox(height: 16),
 

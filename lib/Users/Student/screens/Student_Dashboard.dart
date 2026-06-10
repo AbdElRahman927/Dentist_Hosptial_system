@@ -5,6 +5,7 @@ import 'package:dentist_hospital_system/Widgets/2_Dashboard_Widgets/Student_Spec
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
 import 'package:dentist_hospital_system/screens/Chat%20bot/controller/chat_controller.dart';
 import 'package:dentist_hospital_system/screens/Chat%20bot/screens/AI_Chat_Screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class Student_DashBoard extends StatefulWidget {
@@ -233,7 +234,7 @@ class _Student_DashBoardState extends State<Student_DashBoard> {
                         radius: 22,
                         backgroundColor: Color(0xff931A23),
                         child: Text(
-                          "AH",
+                          doctors[0].initials.toString(),
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -246,14 +247,14 @@ class _Student_DashBoardState extends State<Student_DashBoard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Dr. Ahmed Hassan",
+                              students[0].supervisor.toString(),
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(
-                              "Orthodontist",
+                              doctors[0].specialization.toString(),
                               style: TextStyle(
                                 fontSize: 13,
                                 color: Colors.grey[500],

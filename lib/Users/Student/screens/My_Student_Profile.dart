@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class Student_Profile extends StatelessWidget {
@@ -49,7 +50,7 @@ class Student_Profile extends StatelessWidget {
                   radius: 45,
                   backgroundColor: Color(0xff931A23),
                   child: Text(
-                    "OA",
+                    students[0].initials.toString(),
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -59,12 +60,12 @@ class Student_Profile extends StatelessWidget {
                 ),
                 SizedBox(height: 14),
                 Text(
-                  "Omar Ali",
+                  students[0].name.toString(),
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "Dental Student",
+                  students[0].email.toString(),
                   style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
                 SizedBox(height: 10),
@@ -78,7 +79,7 @@ class Student_Profile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        "2nd Year",
+                        students[0].year.toString(),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.blue,
@@ -94,7 +95,7 @@ class Student_Profile extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        "DS-2023-001",
+                        students[0].id.toString(),
                         style: TextStyle(
                           fontSize: 12,
                           color: Color(0xff931A23),
@@ -112,9 +113,17 @@ class Student_Profile extends StatelessWidget {
           // Stats
           Row(
             children: [
-              _stat("Cases Done", "18", Icons.assignment_turned_in_outlined),
+              _stat(
+                "Cases Done",
+                "${students[0].numOfPatients}",
+                Icons.assignment_turned_in_outlined,
+              ),
               SizedBox(width: 10),
-              _stat("Patients", "12", Icons.people_outline),
+              _stat(
+                "Patients",
+                "${students[0].numOfAppointments}",
+                Icons.people_outline,
+              ),
             ],
           ),
           SizedBox(height: 10),
@@ -129,9 +138,21 @@ class Student_Profile extends StatelessWidget {
 
           // Personal Information
           _sectionCard("Personal Information", [
-            _infoRow(Icons.email_outlined, "Email", "omar.ali@std.nmu.edu.eg"),
-            _infoRow(Icons.phone_outlined, "Phone", "+20 1098765432"),
-            _infoRow(Icons.badge_outlined, "Student ID", "DS-2023-001"),
+            _infoRow(
+              Icons.email_outlined,
+              "Email",
+              students[0].email.toString(),
+            ),
+            _infoRow(
+              Icons.phone_outlined,
+              "Phone",
+              students[0].phone.toString(),
+            ),
+            _infoRow(
+              Icons.badge_outlined,
+              "Student ID",
+              students[0].id.toString(),
+            ),
             _infoRow(
               Icons.calendar_today_outlined,
               "Enrolled",
@@ -147,8 +168,12 @@ class Student_Profile extends StatelessWidget {
               "Program",
               "Bachelor of Dental Surgery",
             ),
-            _infoRow(Icons.class_outlined, "Year", "2nd Year"),
-            _infoRow(Icons.person_outline, "Supervisor", "Dr. Ahmed Hassan"),
+            _infoRow(Icons.class_outlined, "Year", students[0].year.toString()),
+            _infoRow(
+              Icons.person_outline,
+              "Supervisor",
+              students[0].supervisor.toString(),
+            ),
             _infoRow(Icons.category_outlined, "Department", "Prosthodontics"),
           ]),
           SizedBox(height: 16),

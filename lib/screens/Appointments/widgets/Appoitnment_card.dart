@@ -92,9 +92,14 @@ class AppointmentCard extends StatelessWidget {
                         color: Colors.grey[400],
                       ),
                       const SizedBox(width: 4),
-                      Text(
-                        "${appointment.date ?? '-'} • ${appointment.time ?? '-'}",
-                        style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                      Expanded(
+                        child: Text(
+                          "${appointment.date ?? '-'} • ${appointment.time ?? '-'}",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[500],
+                          ),
+                        ),
                       ),
                     ],
                   ),

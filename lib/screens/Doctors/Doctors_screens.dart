@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Doctors/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
@@ -21,35 +22,6 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
 
   final List<String> filters = ['All', 'Active', 'On Leave', 'Inactive'];
 
-  final List<Doctor_model> doctors = [
-    Doctor_model(
-      license: 'skbakskjas',
-      phone: '011',
-      email: "[EMAIL_ADDRESS]",
-      experience: '10 years',
-      numOfAppointments: 10,
-      name: 'Dr. Ahmed Hassan',
-      specialization: 'Orthodontist',
-      numOfPatients: 142,
-      numOfStudents: 8,
-      state: 'Active',
-      lastActive: '2 min ago',
-      department: 'Orthodontics',
-    ),
-    Doctor_model(
-      license: 'skbakskjas',
-      phone: '011',
-      email: "[EMAIL_ADDRESS]",
-      experience: '10 years',
-      numOfAppointments: 10,
-      name: 'Dr. Sara Mohamed',
-      specialization: 'Prosthodontics',
-      numOfPatients: 98,
-      numOfStudents: 5,
-      state: 'Active',
-      lastActive: '15 min ago',
-    ),
-  ];
 
   List<Doctor_model> get filteredDoctors {
     return doctors.where((doctor) {

@@ -1,3 +1,4 @@
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class PatientHeader extends StatelessWidget {
@@ -23,15 +24,12 @@ class PatientHeader extends StatelessWidget {
 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
+              const Text("Welcome", style: TextStyle(color: Colors.white70)),
+              const SizedBox(height: 4),
               Text(
-                "Welcome",
-                style: TextStyle(color: Colors.white70),
-              ),
-              SizedBox(height: 4),
-              Text(
-                "Patient Name", // 🔥 replace later from session
-                style: TextStyle(
+                patients[0].name ?? "",
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

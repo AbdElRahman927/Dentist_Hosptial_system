@@ -33,7 +33,7 @@ class PatientProfileStatCard extends StatelessWidget {
           const SizedBox(height: 8),
 
           Text(
-            value,
+            value.toString(),
             style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,

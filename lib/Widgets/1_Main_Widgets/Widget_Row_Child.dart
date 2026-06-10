@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Widget_Row_Child extends StatelessWidget {

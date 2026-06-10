@@ -1,3 +1,4 @@
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Students/Studetns_screens.dart';
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/Widget_Row_Child.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class Active_Students extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Text(
-                            "OM",
+                            students[index].initials,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -70,8 +71,18 @@ class Active_Students extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Omar Ali"),
-                            Text("Year 3 - Group 2- ID 123456"),
+                            Text(
+                              "${students[index].name}",
+                              style: TextStyle(fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              "Year ${students[index].year} - ID ${students[index].id}",
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            Text(
+                              "${students[index].supervisor}",
+                              style: TextStyle(fontSize: 13),
+                            ),
                           ],
                         ),
                       ],

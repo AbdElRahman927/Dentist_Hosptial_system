@@ -1,6 +1,7 @@
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/table_cards/Table_Detail_Card.dart';
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/table_cards/card_Model.dart';
 import 'package:dentist_hospital_system/screens/Appointments/Appointment_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Doctors/Doctors_screens.dart';
 import 'package:dentist_hospital_system/screens/Patients/patient_screen.dart';
 import 'package:dentist_hospital_system/screens/Students/Studetns_screens.dart';
@@ -15,7 +16,7 @@ class AdminTable extends StatelessWidget {
       card_Model(
         image: "images/doctor.png",
         title: "Total Doctors",
-        number: "3",
+        number: doctors.length.toString(),
         ontap: () {
           Navigator.push(
             context,
@@ -27,7 +28,7 @@ class AdminTable extends StatelessWidget {
       card_Model(
         image: "images/graduation.png",
         title: "Total Students",
-        number: "3",
+        number: students.length.toString(),
         ontap: () {
           Navigator.push(
             context,
@@ -38,7 +39,7 @@ class AdminTable extends StatelessWidget {
       card_Model(
         image: "images/patient.png",
         title: "Total Patients",
-        number: "3",
+        number: patients.length.toString(),
         ontap: () {
           Navigator.push(
             context,
@@ -49,7 +50,7 @@ class AdminTable extends StatelessWidget {
       card_Model(
         image: "images/calendar.png",
         title: "Appointments",
-        number: "3",
+        number: appointments.length.toString(),
         ontap: () {
           Navigator.push(
             context,

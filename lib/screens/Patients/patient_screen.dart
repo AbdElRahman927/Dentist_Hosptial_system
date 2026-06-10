@@ -1,4 +1,5 @@
 import 'package:dentist_hospital_system/Auth/main_auth/Drawerhandler.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Patients/model/patient_model.dart';
 import 'package:dentist_hospital_system/screens/Patients/patient_modal_sheet.dart';
 import 'package:dentist_hospital_system/screens/Patients/widgets/pateint_stats.dart';
@@ -24,73 +25,6 @@ class _PatientsScreenState extends State<PatientsScreen> {
     'Active',
     'Scheduled',
     'Completed',
-  ];
-
-  final List<PatientModel> patients = [
-    PatientModel(
-      name: 'Mahmoud Taha',
-      email: 'Mahmoud.taha@gmail.com',
-      id: 'P-2022-0156',
-      phone: '+20 100 000 0000',
-      age: '25',
-      gender: 'Male',
-      medicalHistory: 'Orthodontic treatment',
-      notes: 'Needs follow-up after 2 weeks',
-      condition: 'Orthodontic treatment',
-      lastVisit: '2026-04-10',
-      nextVisit: '2026-04-24',
-      state: 'Active',
-      assignedDoctorName: 'Dr. Ahmed Hassan',
-      assignedDoctorSpecialization: 'Orthodontist',
-    ),
-    PatientModel(
-      name: 'Sara Ali',
-      email: 'sara.ali@gmail.com',
-      id: 'P-2024-0012',
-      phone: '+20 101 222 3333',
-      age: '31',
-      gender: 'Female',
-      medicalHistory: 'Root canal treatment',
-      notes: 'Pain improved',
-      condition: 'Root canal',
-      lastVisit: '2026-04-08',
-      nextVisit: '2026-04-15',
-      state: 'Scheduled',
-      assignedDoctorName: 'Dr. Karim Youssef',
-      assignedDoctorSpecialization: 'Endodontics',
-    ),
-    PatientModel(
-      name: 'Omar Nabil',
-      email: 'omar.nabil@gmail.com',
-      id: 'P-2023-0091',
-      phone: '+20 109 888 7777',
-      age: '19',
-      gender: 'Male',
-      medicalHistory: 'Routine checkup',
-      notes: 'Treatment completed successfully',
-      condition: 'Checkup',
-      lastVisit: '2026-03-20',
-      nextVisit: '2026-05-10',
-      state: 'Completed',
-      assignedDoctorName: 'Dr. Sara Mohamed',
-      assignedDoctorSpecialization: 'Prosthodontics',
-    ),
-    PatientModel(
-      name: 'Nourhan Mostafa',
-      email: 'nourhan.m@gmail.com',
-      id: 'P-2021-0024',
-      phone: '+20 102 444 5555',
-      age: '27',
-      gender: 'Female',
-      medicalHistory: 'Gum treatment',
-      notes: 'No current complaints',
-      condition: 'Periodontal care',
-      lastVisit: '2026-04-05',
-      nextVisit: '2026-04-19',
-      state: 'Active',
-      assignedDoctorName: 'Dr. Nadia Farouk',
-      assignedDoctorSpecialization: 'Periodontics',
-    ),
   ];
 
   List<PatientModel> get filteredPatients {

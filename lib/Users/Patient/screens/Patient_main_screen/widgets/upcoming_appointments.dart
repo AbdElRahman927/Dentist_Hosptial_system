@@ -1,3 +1,5 @@
+import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/widgets/patient_appointment_card.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 
 class UpcomingAppointments extends StatelessWidget {
@@ -10,24 +12,12 @@ class UpcomingAppointments extends StatelessWidget {
       children: [
         const Text(
           "Next Appointment",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
 
         const SizedBox(height: 12),
 
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(14),
-          ),
-          child: const Center(
-            child: Text("No upcoming appointments"),
-          ),
-        ),
+        Center(child: PatientAppointmentCard(appointment: myappointments[0])),
       ],
     );
   }

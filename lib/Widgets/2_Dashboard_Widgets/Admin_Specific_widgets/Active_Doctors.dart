@@ -1,3 +1,4 @@
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Doctors/Doctors_screens.dart';
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/Widget_Row_Child.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class Active_Doctors extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Text(
-                        "SM",
+                        doctors[index].initials,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -67,11 +68,14 @@ class Active_Doctors extends StatelessWidget {
                     SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [Text("DR. Sarah Mohamed "), Text("Dentist")],
+                      children: [
+                        Text("${doctors[index].name}"),
+                        Text("${doctors[index].specialization}"),
+                      ],
                     ),
                   ],
                 ),
-                child2: Text("2 hours ago"),
+                child2: Text("${doctors[index].lastActive}"),
               );
             },
           ),

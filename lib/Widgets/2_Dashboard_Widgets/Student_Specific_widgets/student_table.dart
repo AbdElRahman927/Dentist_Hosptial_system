@@ -1,6 +1,7 @@
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/table_cards/Table_Detail_Card.dart';
 import 'package:dentist_hospital_system/Widgets/1_Main_Widgets/table_cards/card_Model.dart';
 import 'package:dentist_hospital_system/screens/Appointments/Appointment_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Patients/patient_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +11,10 @@ class StudentTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<card_Model> list = [
-      
-
       card_Model(
         image: "images/patient.png",
         title: "Total Patients",
-        number: "3",
+        number: students[0].numOfPatients.toString(),
         ontap: () {
           Navigator.push(
             context,
@@ -26,7 +25,7 @@ class StudentTable extends StatelessWidget {
       card_Model(
         image: "images/calendar.png",
         title: "Appointments",
-        number: "3",
+        number: students[0].numOfAppointments.toString(),
         ontap: () {
           Navigator.push(
             context,
@@ -39,7 +38,7 @@ class StudentTable extends StatelessWidget {
       card_Model(
         image: "images/diagnosis.png",
         title: "Total Diagnoses",
-        number: "3",
+        number: students[0].numOfAppointments.toString(),
         ontap: null,
       ),
     ];
