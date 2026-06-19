@@ -6,6 +6,7 @@ import 'package:dentist_hospital_system/Users/Student/screens/Student_Settings.d
 import 'package:dentist_hospital_system/Auth/main_auth/app_session.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/session_manager.dart';
 import 'package:dentist_hospital_system/screens/Appointments/Appointment_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Help%20&%20support.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
 import 'package:dentist_hospital_system/screens/Patients/patient_screen.dart';
@@ -41,7 +42,7 @@ class Drawer_Student extends StatelessWidget {
                     radius: 24,
                     backgroundColor: Color(0xff931A23),
                     child: Text(
-                      "OA",
+                      students[0].initials,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -55,7 +56,7 @@ class Drawer_Student extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Omar Ali",
+                          students[0].name.toString(),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -74,7 +75,7 @@ class Drawer_Student extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
-                                "Year 3",
+                                students[0].year.toString(),
                                 style: TextStyle(
                                   fontSize: 11,
                                   color: Colors.blue[700],
@@ -93,7 +94,7 @@ class Drawer_Student extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
-                                "DS-2023-001",
+                                students[0].id.toString(),
                                 style: TextStyle(
                                   fontSize: 11,
                                   color: Colors.grey[600],

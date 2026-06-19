@@ -66,7 +66,7 @@ class Recent_appointments extends StatelessWidget {
                             children: [
                               Text(appointments[index].patientName),
                               Text(
-                                appointments[index].treatment!,
+                                appointments[index].treatment ?? "No Treatment",
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
                             ],

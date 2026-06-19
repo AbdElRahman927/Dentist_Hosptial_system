@@ -93,6 +93,8 @@ class _PatientAppointmentsScreenState extends State<PatientAppointmentsScreen> {
                 filtered.isEmpty
                     ? const PatientAppointmentsEmpty()
                     : ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
                       padding: const EdgeInsets.all(16),
                       itemCount: filtered.length,
                       itemBuilder:

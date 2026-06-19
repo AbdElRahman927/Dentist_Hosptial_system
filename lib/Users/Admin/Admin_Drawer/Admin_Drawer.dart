@@ -44,7 +44,7 @@ class Drawer_Admin extends StatelessWidget {
                     radius: 24,
                     backgroundColor: Color(0xff931A23),
                     child: Text(
-                      "AH",
+                      "A",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class Drawer_Admin extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Dr. Ahmed Hassan",
+                          "ADMIN",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

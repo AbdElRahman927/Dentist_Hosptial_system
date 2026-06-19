@@ -5,6 +5,7 @@ import 'package:dentist_hospital_system/Users/Doctor/screens/My_Doctor_Profile.d
 import 'package:dentist_hospital_system/Auth/main_auth/app_session.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/session_manager.dart';
 import 'package:dentist_hospital_system/screens/Appointments/Appointment_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:dentist_hospital_system/screens/Help%20&%20support.dart';
 import 'package:dentist_hospital_system/screens/Patients/patient_screen.dart';
 import 'package:dentist_hospital_system/screens/Students/Studetns_screens.dart';
@@ -42,7 +43,7 @@ class Drawer_Doctor extends StatelessWidget {
                     radius: 24,
                     backgroundColor: Color(0xff931A23),
                     child: Text(
-                      "AH",
+                      doctors[0].initials.toString(),
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -56,7 +57,7 @@ class Drawer_Doctor extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Dr. Ahmed Hassan",
+                          doctors[0].name.toString(),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -73,7 +74,7 @@ class Drawer_Doctor extends StatelessWidget {
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
-                            "Orthodontist",
+                            doctors[0].specialization.toString(),
                             style: TextStyle(
                               fontSize: 11,
                               color: Colors.blue[700],

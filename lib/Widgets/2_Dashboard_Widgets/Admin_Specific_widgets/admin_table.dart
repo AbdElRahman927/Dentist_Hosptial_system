@@ -63,9 +63,10 @@ class AdminTable extends StatelessWidget {
     ];
 
     return Wrap(
-      direction: Axis.horizontal,
+      direction: Axis.vertical,
       spacing: 20,
       runSpacing: 20,
+
       children:
           list
               .map(

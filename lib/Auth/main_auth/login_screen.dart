@@ -50,7 +50,6 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() => isLoading = false);
       _showError("Wrong Email Or Password");
     }
-    
 
     // if (role == null) {
     //   setState(() => isLoading = false);
@@ -127,12 +126,16 @@ class _LoginScreenState extends State<LoginScreen> {
             child: ListView(
               shrinkWrap: true,
               children: [
-                Image.asset("images/New_Mansoura_University.png", height: 80),
+                Image.asset(
+                  "images/hospital_logo.png",
+                  width: 180,
+                  height: 180,
+                ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
 
                 const Text(
-                  "NMU Dentistry Hospital",
+                  "NMU Dental Hospital",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
@@ -141,6 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 /// EMAIL
                 TextField(
+                  cursorColor: Color(0xff941419),
                   controller: emailController,
                   decoration: _inputDecoration("Email", Icons.email_outlined),
                 ),
@@ -151,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextField(
                   controller: passwordController,
                   obscureText: isPasswordVisible,
+                  cursorColor: Color(0xff941419),
                   decoration: _inputDecoration(
                     "Password",
                     Icons.lock_outline,
@@ -193,14 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 10),
 
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const PatientRegistrationScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: const Text(
                     "Forgot Password?",
                     style: TextStyle(color: Colors.black),
@@ -236,6 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return InputDecoration(
       labelText: label,
+      labelStyle: const TextStyle(color: Colors.black),
       prefixIcon: Icon(icon),
       suffixIcon: suffix,
       filled: true,

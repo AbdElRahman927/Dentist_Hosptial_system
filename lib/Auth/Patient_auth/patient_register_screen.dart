@@ -24,11 +24,18 @@ class _PatientRegistrationScreenState extends State<PatientRegistrationScreen> {
   bool agreeToTerms = false;
 
   void register() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        phoneController.text.isEmpty) {
+      _showError("Please fill all the fields");
+      return;
+    }
+
     if (!agreeToTerms) {
       _showError("You must agree to terms");
       return;
     }
-
     final patient = PatientauthModel(
       name: nameController.text.trim(),
       email: emailController.text.trim(),

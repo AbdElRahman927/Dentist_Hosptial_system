@@ -8,6 +8,7 @@ import 'package:dentist_hospital_system/Users/Patient/screens/diagnoses_screen/d
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_appointments/screens/patient_appointments_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/patient_settings/patient_settings_screen.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/prescriptions_screen/prescriptions_screen.dart';
+import 'package:dentist_hospital_system/screens/Data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/login_screen.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/session_manager.dart';
@@ -51,7 +52,7 @@ class PatientDrawer extends StatelessWidget {
                 ),
                 children: [
                   /// MAIN FEATURES
-                  const PatientSectionLabel("PATIENT"),
+                  PatientSectionLabel(patients[0].name.toString()),
 
                   PatientDrawerTile(
                     text: "Dashboard",

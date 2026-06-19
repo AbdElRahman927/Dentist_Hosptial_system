@@ -7,10 +7,10 @@ class RegisterHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset("images/New_Mansoura_University.png", height: 80),
+        Image.asset("images/hospital_logo.png", width: 180, height: 180),
         const SizedBox(height: 10),
         const Text(
-          "NMU Dentistry Hospital",
+          "NMU Dental Hospital",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
