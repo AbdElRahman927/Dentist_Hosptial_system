@@ -121,7 +121,6 @@ class StudentModalSheet extends StatelessWidget {
                   _row("Phone", student.phone),
                   _row("Supervisor", student.supervisor),
                   _row("Year", "${student.year}"),
-                  _row("Email", student.email),
                   _row("Status", student.statusLabel),
                   _row("Total Appointments", "${student.numOfAppointments}"),
                   _row("Total Patients", "${student.numOfPatients}"),

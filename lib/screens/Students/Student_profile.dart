@@ -197,7 +197,7 @@ class StudentProfile extends StatelessWidget {
     return Container(
       width: width * 0.27,
       height: width * 0.25,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
@@ -219,7 +219,7 @@ class StudentProfile extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12, color: color),
+            style: TextStyle(fontSize: 10, color: color),
           ),
         ],
       ),

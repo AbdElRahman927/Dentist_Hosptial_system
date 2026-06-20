@@ -224,7 +224,7 @@ class PatientProfile extends StatelessWidget {
     return Container(
       width: width * 0.27,
       height: width * 0.25,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
@@ -239,7 +239,7 @@ class PatientProfile extends StatelessWidget {
             style: TextStyle(
               color: color,
               fontWeight: FontWeight.bold,
-              fontSize: 18,
+              fontSize: 12,
             ),
           ),
 
