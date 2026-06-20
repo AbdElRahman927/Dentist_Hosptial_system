@@ -3,6 +3,7 @@ import 'package:dentist_hospital_system/Auth/main_auth/session_manager.dart';
 import 'package:dentist_hospital_system/Auth/main_auth/user_role.dart';
 import 'package:dentist_hospital_system/Users/Patient/screens/Patient_main_screen/Patient_main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'Auth/main_auth/login_screen.dart';
 
 import 'Users/Admin/Screens/Admin_Dashboard.dart';
@@ -11,6 +12,8 @@ import 'Users/Student/screens/Student_Dashboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   final isLoggedIn = await SessionManager.isLoggedIn();
   final role = await SessionManager.getUserRole();

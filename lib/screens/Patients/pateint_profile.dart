@@ -29,7 +29,7 @@ class PatientProfile extends StatelessWidget {
         children: [
           _headerCard(),
           const SizedBox(height: 16),
-          _statsRow(),
+          _statsRow(MediaQuery.of(context).size.width),
           const SizedBox(height: 16),
           _sectionCard(
             title: "Personal Information",
@@ -183,70 +183,72 @@ class PatientProfile extends StatelessWidget {
     );
   }
 
-  Widget _statsRow() {
+  Widget _statsRow(double width) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _statCard(
-          title: "Appointments",
-          value: "${patient.appointmentsCount}",
-          icon: Icons.calendar_month_outlined,
-          color: Colors.blue,
+          "Appointments",
+          "${patient.appointmentsCount}",
+          Icons.calendar_month_outlined,
+          Colors.blue,
+          width,
         ),
         const SizedBox(width: 12),
         _statCard(
-          title: "Visits",
-          value:
-              patient.lastVisit == null || patient.lastVisit!.isEmpty
-                  ? "0"
-                  : "1+",
-          icon: Icons.local_hospital_outlined,
-          color: Colors.green,
+          "Visits",
+          patient.lastVisit == null || patient.lastVisit!.isEmpty ? "0" : "1+",
+          Icons.local_hospital_outlined,
+          Colors.green,
+          width,
         ),
         const SizedBox(width: 12),
         _statCard(
-          title: "Status",
-          value: patient.statusLabel,
-          icon: Icons.flag_outlined,
-          color: const Color(0xff931A23),
+          "Status",
+          patient.statusLabel,
+          Icons.flag_outlined,
+          const Color(0xff931A23),
+          width,
         ),
       ],
     );
   }
 
-  Widget _statCard({
-    required String title,
-    required String value,
-    required IconData icon,
-    required Color color,
-  }) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Column(
-          children: [
-            Icon(icon, color: color, size: 26),
-            const SizedBox(height: 6),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+  Widget _statCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+    double width,
+  ) {
+    return Container(
+      width: width * 0.27,
+      height: width * 0.25,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Icon(icon, color: color),
+
+          Text(
+            value,
+            style: TextStyle(
+              color: color,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
-            const SizedBox(height: 4),
-            Text(
-              value,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: color,
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-              ),
-            ),
-          ],
-        ),
+          ),
+
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12, color: color),
+          ),
+        ],
       ),
     );
   }

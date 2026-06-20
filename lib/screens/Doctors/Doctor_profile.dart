@@ -29,7 +29,7 @@ class DoctorProfile extends StatelessWidget {
 
           const SizedBox(height: 16),
 
-          _statsRow(),
+          _statsRow(MediaQuery.of(context).size.width),
 
           const SizedBox(height: 16),
 
@@ -136,55 +136,60 @@ class DoctorProfile extends StatelessWidget {
   // STATS
   // =========================================================
 
-  Widget _statsRow() {
+  Widget _statsRow(double width) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-          child: _statCard(
-            "Patients",
-            "${doctor.patientsCount}",
-            Icons.people_outline,
-            Colors.blue,
-          ),
+        _statCard(
+          "Patients",
+          "${doctor.patientsCount}",
+          Icons.people_outline,
+          Colors.blue,
+          width,
         ),
 
         const SizedBox(width: 10),
 
-        Expanded(
-          child: _statCard(
-            "Students",
-            "${doctor.studentsCount}",
-            Icons.school_outlined,
-            Colors.orange,
-          ),
+        _statCard(
+          "Students",
+          "${doctor.studentsCount}",
+          Icons.school_outlined,
+          Colors.orange,
+          width,
         ),
 
         const SizedBox(width: 10),
 
-        Expanded(
-          child: _statCard(
-            "Appointments",
-            "${doctor.numOfAppointments ?? 0}",
-            Icons.calendar_month_outlined,
-            Colors.green,
-          ),
+        _statCard(
+          "Appointments",
+          "${doctor.numOfAppointments ?? 0}",
+          Icons.calendar_month_outlined,
+          Colors.green,
+          width,
         ),
       ],
     );
   }
 
-  Widget _statCard(String title, String value, IconData icon, Color color) {
+  Widget _statCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+    double width,
+  ) {
     return Container(
+      width: width * 0.27,
+      height: width * 0.25,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Icon(icon, color: color),
-
-          const SizedBox(height: 6),
 
           Text(
             value,
@@ -195,12 +200,10 @@ class DoctorProfile extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 4),
-
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: 12, color: color),
           ),
         ],
       ),
